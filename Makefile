@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
+#    By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 17:41:50 by lolemmen          #+#    #+#              #
-#    Updated: 2022/06/27 14:22:55 by lolemmen         ###   ########.fr        #
+#    Updated: 2022/07/02 12:03:57 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,9 @@ SRC = \
 		reset.c \
 		display.c \
 		draw.c \
+		close.c \
+		errors.c \
+		init.c \
 
 INC = \
 		fractol.h \

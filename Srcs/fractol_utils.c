@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:06:52 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/23 23:16:20 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 12:06:44 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,4 @@ void	ft_putendl(char *str)
 	}
 	write(1, "\n", 1);
 }
+

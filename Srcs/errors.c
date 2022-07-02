@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_fractale.c                                   :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 16:29:41 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 12:01:12 by lolemmen         ###   ########.fr       */
+/*   Created: 2022/07/02 11:12:03 by lolemmen          #+#    #+#             */
+/*   Updated: 2022/07/02 11:36:28 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	ft_parse_fractale(t_win *args)
+void    ft_error_message(char *message, int close, t_win *args)
 {
-	if (args->type == 1)
-		mandelbrot(args);
-	else if (args->type == 2)
-		julia(args);
-	else if (args->type == 3)
-		burningship(args);
-	else if (args->type == 4)
-		tricorn(args);
-	ft_init_fractol_limits(args);
-	return ;
+    ft_putendl(message);
+    if (close == 1)
+        ft_clean_close(args);
 }

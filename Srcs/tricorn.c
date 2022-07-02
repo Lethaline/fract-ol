@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tricorn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 14:05:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/27 14:15:59 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:25:46 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	tricorn(t_win *args)
 		zi = tmp;
 		n++;
 	}
-	color(args, n);
+	color(args, args->colors[n]);
 }

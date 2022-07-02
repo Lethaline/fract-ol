@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:20:23 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/27 14:36:29 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:25:11 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	julia(t_win *args)
 		zi = tmp;
 		n++;
 	}
-	color(args, n);
+	color(args, args->colors[n]);
 }
 

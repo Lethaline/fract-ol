@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:44:03 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 10:43:41 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:24:30 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #  define MAX_ITERATIONS 80
 # endif
 
-enum touche {
+enum utils {
 	ESC = 53,
 	LEFT = 123,
 	RIGHT = 124,
@@ -45,7 +45,11 @@ enum touche {
 	NB2 = 19,
 	NB3 = 20,
 	NB4 = 21,
-	NB5 = 23
+	NB5 = 23,
+	MANDELBROT = 1,
+	JULIA = 2,
+	BURNINGSHIP = 3,
+	TRICORN = 4
 };
 
 typedef struct s_win {
@@ -61,14 +65,12 @@ typedef struct s_win {
 	double	const_i;
 	double	cr;
 	double	ci;
-	int		bpp;
-	int		sl;
-	int		end;
 	int		mouse_x;
 	int		mouse_y;
 	int		y;
 	int		x;
 	int		color;
+	int		*colors;
 	int		type;
 }				t_win;
 
@@ -76,18 +78,24 @@ char	*ft_strlowcase(char *str);
 int		ft_strcmp(char *str1, char *str2);
 int		key_hook(int keycode, t_win *args);
 int		mouse_hook(int keycode, t_win *args);
-void	color(t_win *args, int n);
+void	color(t_win *args, int color);
 void	move_arrow(t_win *args, int keycode);
 void	burningship(t_win *args);
 void	julia(t_win *args);
 void	mandelbrot(t_win *args);
 void	tricorn(t_win *args);
-void	parsing(t_win *args, char *av);
+void	ft_parsing(t_win *args, char **av);
 void	ft_parse_fractale(t_win *args);
 void	reset(t_win *args);
 void	display_values(t_win *args);
 void	ft_putendl(char *str);
 void	ft_draw(t_win *args);
 void	ft_put_text_on_screen(t_win *args);
+void	ft_error_message(char *message, int close, t_win *args);
+void	ft_clean_close(t_win *args);
+t_win	ft_init_fractal(void);
+void	ft_init_img(t_win *args);
+void	ft_init_fractol_limits(t_win *args);
+void	ft_set_colors(t_win *args, int color);
 
 #endif
