@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:20:23 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 13:25:11 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:33:37 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	julia(t_win *args)
 		zi = tmp;
 		n++;
 	}
-	color(args, args->colors[n]);
+	color(args, n);
 }
 

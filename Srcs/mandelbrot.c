@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:20:21 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 13:25:36 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:33:22 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	mandelbrot(t_win *args)
 		zi = tmp;
 		n++;
 	}
-	color(args, args->colors[n]);
+	color(args, n);
 }

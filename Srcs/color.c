@@ -6,14 +6,19 @@
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 17:12:03 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 13:30:06 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:34:31 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	color(t_win *args, int color)
+void	color(t_win *args, int n)
 {
+	int color;
+	if (n >= 0 && n <= MAX_ITERATIONS - 1)
+		color = args->color * n;
+	else
+		color = 0x000000;
 	args->img_ptr[args->x * 4 + args->y * WIDTH * 4] = color;
 	args->img_ptr[args->x * 4 + args->y * WIDTH * 4 + 1] = color >> 8;
 	args->img_ptr[args->x * 4 + args->y * WIDTH * 4 + 2] = color >> 16;

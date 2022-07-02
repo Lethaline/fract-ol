@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:44:03 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 13:24:30 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:33:13 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,6 @@ void	ft_clean_close(t_win *args);
 t_win	ft_init_fractal(void);
 void	ft_init_img(t_win *args);
 void	ft_init_fractol_limits(t_win *args);
-void	ft_set_colors(t_win *args, int color);
+void	ft_set_colors(t_win *args, int n);
 
 #endif
