@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:01:14 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/19 18:29:45 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 15:25:56 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 int	mouse_hook(int keycode, t_win *args)
 {
-	(void)*args;
+	(void)args;
 	printf("%d\n", keycode);
 	return (0);
 }

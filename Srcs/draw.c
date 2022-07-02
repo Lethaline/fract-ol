@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:04:14 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 13:30:57 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 15:27:56 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_draw(t_win *args)
 {
+	mlx_clear_window(args->mlx, args->win);
 	args->y = 0;
 	while (args->y < HEIGHT)
 	{

@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:00:26 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 12:07:26 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 15:30:43 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	ft_parsing(t_win *args, char **av)
 		args->type = 4;
 	else
 		ft_error_message("Error : Invalid Argument.", 1, args);
+	ft_init_fractol_limits(args);
 }

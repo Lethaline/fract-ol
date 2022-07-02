@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:29:41 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 12:01:12 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/02 15:30:28 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ void	ft_parse_fractale(t_win *args)
 		burningship(args);
 	else if (args->type == 4)
 		tricorn(args);
-	ft_init_fractol_limits(args);
 	return ;
 }
