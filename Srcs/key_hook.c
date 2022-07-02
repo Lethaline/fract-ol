@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:59:05 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/19 18:31:43 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/06/23 23:20:51 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ static void	zoom(t_win *f, double zoom)
 	f->min_i = f->min_i + (center_i - zoom * center_i) / 2;
 	f->max_i = f->min_i + zoom * center_i;
 	mlx_clear_window(f->mlx, f->win);
-	mandeldraw(f);
 }
 
 int	key_hook(int keycode, t_win *args)
 {
-	(void)args;
 	if (keycode == 53)
 		exit(1);
-	else if (keycode == 123 || keycode == 124)
+	else if (keycode == LEFT || keycode == RIGHT || keycode == BOTTOM || keycode == TOP)
 		move_arrow(args, keycode);
 	else if (keycode == 43)
 		zoom(args, 0.5);
 	else if (keycode == 47)
 		zoom(args, 2.0);
+	else if (keycode == SPACE)
+		reset(args);
 	printf("%d : %f\n", keycode, args->min_r);
 	return (0);
 }

@@ -6,11 +6,21 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 17:06:52 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/19 17:10:29 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/06/23 23:16:20 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
+
+int		ft_strcmp(char *str1, char *str2)
+{
+	while (*str1 == *str2 && *str1)
+	{
+		str1++;
+		str2++;
+	}
+	return (*str1 - *str2);
+}
 
 char	*ft_strlowcase(char *str)
 {
@@ -24,4 +34,22 @@ char	*ft_strlowcase(char *str)
 		i++;
 	}
 	return (str);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putendl(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	write(1, "\n", 1);
 }

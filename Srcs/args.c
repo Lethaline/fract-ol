@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   burningship.c                                      :+:      :+:    :+:   */
+/*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 18:20:18 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/27 14:44:59 by lolemmen         ###   ########.fr       */
+/*   Created: 2022/06/23 13:00:26 by lolemmen          #+#    #+#             */
+/*   Updated: 2022/06/27 14:35:17 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	burningship(t_win *args)
+void	parsing(t_win *args, char *av)
 {
-	int		n;
-	double	zr;
-	double	zi;
-	double	tmp;
-
-	n = 0;
-	zr = 0;
-	zi = 0;
-	while (n < 80)
-	{
-		if ((zr * zr + zi * zi) > 4.0)
-			break ;
-		tmp = fabs(2 * zr * zi) + args->ci;
-		zr = (zr * zr) - (zi * zi) + args->cr;
-		zi = tmp;
-		n++;
-	}
-	color(args, n);
+	if (ft_strcmp(av, "mandelbrot") == 0)
+		args->type = 1;
+	else if (ft_strcmp(av, "julia") == 0)
+		args->type = 2;
+	else if (ft_strcmp(av, "burningship") == 0)
+		args->type = 3;
+	else if (ft_strcmp(av, "tricorn") == 0)
+		args->type = 4;
+	else
+		exit(1);
 }

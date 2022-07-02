@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   burningship.c                                      :+:      :+:    :+:   */
+/*   reset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 18:20:18 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/27 14:44:59 by lolemmen         ###   ########.fr       */
+/*   Created: 2022/06/23 12:56:45 by lolemmen          #+#    #+#             */
+/*   Updated: 2022/06/27 14:22:41 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	burningship(t_win *args)
+void	reset(t_win *args)
 {
-	int		n;
-	double	zr;
-	double	zi;
-	double	tmp;
-
-	n = 0;
-	zr = 0;
-	zi = 0;
-	while (n < 80)
-	{
-		if ((zr * zr + zi * zi) > 4.0)
-			break ;
-		tmp = fabs(2 * zr * zi) + args->ci;
-		zr = (zr * zr) - (zi * zi) + args->cr;
-		zi = tmp;
-		n++;
-	}
-	color(args, n);
+	args->min_r = -2.0;
+	args->max_r = 1.0;
+	args->min_i = -1.5;
+	args->max_i = args->min_i + (args->max_r - args->min_r) * HEIGHT / WIDTH;
+	mlx_clear_window(args->mlx, args->win);
+	ft_draw(args);
 }

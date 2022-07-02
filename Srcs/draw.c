@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   burningship.c                                      :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 18:20:18 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/27 14:44:59 by lolemmen         ###   ########.fr       */
+/*   Created: 2022/06/27 14:04:14 by lolemmen          #+#    #+#             */
+/*   Updated: 2022/07/02 10:59:49 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	burningship(t_win *args)
+void	ft_draw(t_win *args)
 {
-	int		n;
-	double	zr;
-	double	zi;
-	double	tmp;
-
-	n = 0;
-	zr = 0;
-	zi = 0;
-	while (n < 80)
+	args->y = 0;
+	while (args->y < HEIGHT)
 	{
-		if ((zr * zr + zi * zi) > 4.0)
-			break ;
-		tmp = fabs(2 * zr * zi) + args->ci;
-		zr = (zr * zr) - (zi * zi) + args->cr;
-		zi = tmp;
-		n++;
+		args->x = 0;
+		while (args->x < WIDTH)
+		{
+			args->cr = args->min_r + args->x * (args->max_r - args->min_r) / WIDTH;
+			args->ci = args->min_i + args->y * (args->max_i - args->min_i) / HEIGHT;
+			ft_parse_fractale(args);
+			args->x++;
+		}
+		args->y++;
 	}
-	color(args, n);
 }

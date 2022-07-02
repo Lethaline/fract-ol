@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   burningship.c                                      :+:      :+:    :+:   */
+/*   parse_fractale.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/18 18:20:18 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/27 14:44:59 by lolemmen         ###   ########.fr       */
+/*   Created: 2022/06/23 16:29:41 by lolemmen          #+#    #+#             */
+/*   Updated: 2022/06/27 14:26:49 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	burningship(t_win *args)
+void	ft_parse_fractale(t_win *args)
 {
-	int		n;
-	double	zr;
-	double	zi;
-	double	tmp;
-
-	n = 0;
-	zr = 0;
-	zi = 0;
-	while (n < 80)
-	{
-		if ((zr * zr + zi * zi) > 4.0)
-			break ;
-		tmp = fabs(2 * zr * zi) + args->ci;
-		zr = (zr * zr) - (zi * zi) + args->cr;
-		zi = tmp;
-		n++;
-	}
-	color(args, n);
+	if (args->type == 1)
+		mandelbrot(args);
+	else if (args->type == 2)
+		julia(args);
+	else if (args->type == 3)
+		burningship(args);
+	else if (args->type == 4)
+		tricorn(args);
+	return ;
 }

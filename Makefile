@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 17:41:50 by lolemmen          #+#    #+#              #
-#    Updated: 2022/06/19 18:03:10 by lolemmen         ###   ########.fr        #
+#    Updated: 2022/06/27 14:22:55 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,11 @@ SRC = \
 		key_hook.c \
 		tricorn.c \
 		fractol_utils.c \
-		test.c \
+		args.c \
+		parse_fractale.c \
+		reset.c \
+		display.c \
+		draw.c \
 
 INC = \
 		fractol.h \
