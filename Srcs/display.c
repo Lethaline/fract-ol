@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 22:31:16 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/06/27 14:36:45 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:55:30 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	display_values(t_win *args)
 	printf("type  : %d\n", args->type);
 }
 
-void	ft_put_text_on_screen(t_win *args)
+void	ft_put_text_on_screen(t_win *f)
 {
-	(void)args;
+	(void)f;
 }

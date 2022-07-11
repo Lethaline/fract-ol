@@ -3,29 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 17:12:03 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 14:34:31 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:55:10 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	color(t_win *args, int n)
+void	color(t_win *f, int n)
 {
-	int color;
+	int	color;
+
 	if (n >= 0 && n <= MAX_ITERATIONS - 1)
-		color = args->color * n;
+		color = f->color * n;
 	else
 		color = 0x000000;
-	args->img_ptr[args->x * 4 + args->y * WIDTH * 4] = color;
-	args->img_ptr[args->x * 4 + args->y * WIDTH * 4 + 1] = color >> 8;
-	args->img_ptr[args->x * 4 + args->y * WIDTH * 4 + 2] = color >> 16;
-	args->img_ptr[args->x * 4 + args->y * WIDTH * 4 + 3] = color >> 24;
+	f->img_ptr[f->x * 4 + f->y * WIDTH * 4] = color;
+	f->img_ptr[f->x * 4 + f->y * WIDTH * 4 + 1] = color >> 8;
+	f->img_ptr[f->x * 4 + f->y * WIDTH * 4 + 2] = color >> 16;
+	f->img_ptr[f->x * 4 + f->y * WIDTH * 4 + 3] = color >> 24;
 }
 
-void	ft_set_colors(t_win *args, int color)
+void	ft_set_colors(t_win *f, int color)
 {
 	int	i;
 	int	rgb[3];
@@ -45,11 +46,11 @@ void	ft_set_colors(t_win *args, int color)
 	}
 	while (++i < MAX_ITERATIONS)
 	{
-		args->colors[i] = 0;
+		f->colors[i] = 0;
 		rgb[0] -= i % 0xFF;
 		rgb[1] -= i % 0xFF;
 		rgb[2] -= i % 0xFF;
-		args->colors[i] = 0xFF << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2];
+		f->colors[i] = 0xFF << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2];
 	}
-	args->colors[MAX_ITERATIONS - 1] = 0;
+	f->colors[MAX_ITERATIONS - 1] = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 11:38:46 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 15:07:19 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/06 14:01:32 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ t_win    ft_init_fractal(void)
     args.max_r = 0;
     args.min_i = 0;
     args.max_i = 0;
-    args.const_r = -0.1011; // 0.183333, 0.096667, -0.766667, 0.3, -0.1011
-	args.const_i = 0.9563; // 0.596667, -0.613333, -0.090000, 0.5, 0.9563
+    args.const_r = 0.3; // 0.183333, 0.096667, -0.766667, 0.3, -0.1011
+	args.const_i = 0.5; // 0.596667, -0.613333, -0.090000, 0.5, 0.9563
     args.color = 0xABCDEF;
     args.colors = (int *)malloc(sizeof(int) * MAX_ITERATIONS + 1);
     if (!args.colors)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:59:05 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 15:07:03 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/09 15:35:58 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	key_hook(int keycode, t_win *args)
 	if (keycode == 53)
 		exit(1);
 	else if (keycode == LEFT || keycode == RIGHT || keycode == BOTTOM || keycode == TOP)
-		move_arrow(args, keycode);
+		move_arrow(args, 0.2, keycode);
 	else if (keycode == 43)
 		zoom(args, 0.5);
 	else if (keycode == 47)

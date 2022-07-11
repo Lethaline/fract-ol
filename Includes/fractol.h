@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:44:03 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 14:33:13 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:14:39 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ typedef struct s_win {
 char	*ft_strlowcase(char *str);
 int		ft_strcmp(char *str1, char *str2);
 int		key_hook(int keycode, t_win *args);
-int		mouse_hook(int keycode, t_win *args);
+int		mouse_hook(int keycode, int x, int y, t_win *args);
 void	color(t_win *args, int color);
-void	move_arrow(t_win *args, int keycode);
+void	move_arrow(t_win *args, double segment, int keycode);
 void	burningship(t_win *args);
 void	julia(t_win *args);
 void	mandelbrot(t_win *args);
@@ -97,5 +97,6 @@ t_win	ft_init_fractal(void);
 void	ft_init_img(t_win *args);
 void	ft_init_fractol_limits(t_win *args);
 void	ft_set_colors(t_win *args, int n);
+double	ft_atof(char *str);
 
 #endif

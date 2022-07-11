@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   burningship.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:20:18 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 14:33:30 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:53:20 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	burningship(t_win *args)
+void	burningship(t_win *f)
 {
 	int		n;
 	double	zr;
@@ -26,10 +26,10 @@ void	burningship(t_win *args)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 			break ;
-		tmp = fabs(2 * zr * zi) + args->ci;
-		zr = (zr * zr) - (zi * zi) + args->cr;
+		tmp = fabs(2 * zr * zi) + f->ci;
+		zr = (zr * zr) - (zi * zi) + f->cr;
 		zi = tmp;
 		n++;
 	}
-	color(args, n);
+	color(f, n);
 }

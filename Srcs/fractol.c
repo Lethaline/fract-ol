@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:52:37 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 12:04:15 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/10 16:01:28 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-	t_win	args;
+	t_win	f;
 
-	if (argc < 2)
-		ft_error_message("Usage : \"./fractol fractal_name\"", 1, &args);
-	args = ft_init_fractal();
-	ft_init_img(&args);
-	ft_parsing(&args, argv);
-	mlx_key_hook(args.win, key_hook, &args);
-	mlx_mouse_hook(args.win, mouse_hook, &args);
-	ft_draw(&args);
-	mlx_loop(args.mlx);
+	if (ac < 2)
+		ft_error_message("Usage : \"./fractol fractal_name\"", 1, &f);
+	f = ft_init_fractal();
+	ft_init_img(&f);
+	ft_parsing(&f, av);
+	mlx_hook(f.win, 17, 0, ft_clean_close, &f);
+	mlx_key_hook(f.win, key_hook, &f);
+	mlx_mouse_hook(f.win, mouse_hook, &f);
+	ft_draw(&f);
+	mlx_loop(f.mlx);
 }
