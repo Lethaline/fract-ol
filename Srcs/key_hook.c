@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:59:05 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/09 15:35:58 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/12 21:40:41 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int	key_hook(int keycode, t_win *args)
 		zoom(args, 2.0);
 	else if (keycode == SPACE)
 		reset(args);
-	printf("%d : %f\n", keycode, args->min_r);
 	return (0);
 }

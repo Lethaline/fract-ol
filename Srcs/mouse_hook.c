@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:01:14 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/09 15:42:40 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/12 21:40:48 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ int	mouse_hook(int keycode, int x, int y, t_win *args)
 	}
 	else if (keycode == 4)
 		zoom(args, 2.0);
-	printf("%d : %d - %d\n", keycode, x, y);
 	return (0);
 }
