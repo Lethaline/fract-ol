@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+         #
+#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 17:41:50 by lolemmen          #+#    #+#              #
-#    Updated: 2022/07/02 12:03:57 by lolemmen         ###   ########.fr        #
+#    Updated: 2022/07/22 17:51:10 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,23 +31,19 @@ OBJSDIR = Objs
 
 SRC = \
 		fractol.c \
-		color.c \
-		move.c \
-		julia.c \
-		mandelbrot.c \
-		burningship.c \
-		mouse_hook.c \
-		key_hook.c \
-		tricorn.c \
-		fractol_utils.c \
-		args.c \
-		parse_fractale.c \
-		reset.c \
-		display.c \
-		draw.c \
-		close.c \
-		errors.c \
-		init.c \
+		ft_burningship.c \
+		ft_close.c \
+		ft_colors.c \
+		ft_display.c \
+		ft_draw.c \
+		ft_errors.c \
+		ft_inits.c \
+		ft_julia.c \
+		ft_key_hook.c \
+		ft_mandelbrot.c \
+		ft_mouse_hook.c \
+		ft_parsing.c \
+		ft_utils.c \
 
 INC = \
 		fractol.h \

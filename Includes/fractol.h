@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:44:03 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/10 15:14:39 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/22 18:14:17 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #  define MAX_ITERATIONS 80
 # endif
 
-enum utils {
+enum e_utils {
 	ESC = 53,
 	LEFT = 123,
 	RIGHT = 124,
@@ -39,7 +39,6 @@ enum utils {
 	S = 1,
 	Q = 0,
 	D = 2,
-	ENTER = 36,
 	SPACE = 49,
 	NB1 = 18,
 	NB2 = 19,
@@ -48,8 +47,7 @@ enum utils {
 	NB5 = 23,
 	MANDELBROT = 1,
 	JULIA = 2,
-	BURNINGSHIP = 3,
-	TRICORN = 4
+	BURNINGSHIP = 3
 };
 
 typedef struct s_win {
@@ -65,6 +63,8 @@ typedef struct s_win {
 	double	const_i;
 	double	cr;
 	double	ci;
+	double	cent_r;
+	double	cent_i;
 	int		mouse_x;
 	int		mouse_y;
 	int		y;
@@ -74,29 +74,31 @@ typedef struct s_win {
 	int		type;
 }				t_win;
 
-char	*ft_strlowcase(char *str);
-int		ft_strcmp(char *str1, char *str2);
-int		key_hook(int keycode, t_win *args);
-int		mouse_hook(int keycode, int x, int y, t_win *args);
-void	color(t_win *args, int color);
-void	move_arrow(t_win *args, double segment, int keycode);
-void	burningship(t_win *args);
-void	julia(t_win *args);
-void	mandelbrot(t_win *args);
-void	tricorn(t_win *args);
-void	ft_parsing(t_win *args, char **av);
-void	ft_parse_fractale(t_win *args);
-void	reset(t_win *args);
-void	display_values(t_win *args);
-void	ft_putendl(char *str);
-void	ft_draw(t_win *args);
-void	ft_put_text_on_screen(t_win *args);
-void	ft_error_message(char *message, int close, t_win *args);
-void	ft_clean_close(t_win *args);
 t_win	ft_init_fractal(void);
-void	ft_init_img(t_win *args);
-void	ft_init_fractol_limits(t_win *args);
-void	ft_set_colors(t_win *args, int n);
+void	ft_burningship(t_win *f);
+void	ft_clean_values(t_win *f);
+void	ft_color(t_win *f, int n);
+void	ft_set_colors(t_win *f, int color);
+void	ft_display_controls(void);
+void	ft_display_available(void);
+void	ft_putendl(char *str);
+void	ft_putchar(char c);
+void	ft_draw(t_win *f);
+void	ft_error_message(char *message, int close, t_win *f);
+void	ft_init_win(t_win *f);
+void	ft_init_img(t_win *f);
+void	ft_init_fractol_limits(t_win *f);
+void	ft_julia(t_win *f);
+void	ft_move_arrow(t_win *f, double segment, int keycode);
+void	ft_mandelbrot(t_win *f);
+void	ft_zoom(t_win *f, double zoom);
+void	ft_parse_fractale(t_win *f);
+void	ft_parsing(t_win *f, char **av);
+int		ft_clean_close(t_win *f);
+int		key_hook(int keycode, t_win *f);
+int		mouse_hook(int keycode, int x, int y, t_win *f);
+int		ft_strcmp(char *str1, char *str2);
+char	*ft_strlowcase(char *str);
 double	ft_atof(char *str);
 
 #endif

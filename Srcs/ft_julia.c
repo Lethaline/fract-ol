@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tricorn.c                                          :+:      :+:    :+:   */
+/*   ft_julia.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 14:05:13 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/02 14:33:43 by lolemmen         ###   ########.fr       */
+/*   Created: 2022/06/18 18:20:23 by lolemmen          #+#    #+#             */
+/*   Updated: 2022/07/22 18:13:49 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-void	tricorn(t_win *args)
+void	ft_julia(t_win *f)
 {
 	int		n;
+	double	tmp;
 	double	zr;
 	double	zi;
-	double	tmp;
 
 	n = 0;
-	zr = args->cr;
-	zi = args->ci;
-	while (n < 1000)
+	zr = f->cr;
+	zi = f->ci;
+	while (n < MAX_ITERATIONS)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 			break ;
-		tmp = -2 * zr * zi + args->ci;
-		zr = (zr * zr) - (zi * zi) + args->cr;
+		tmp = 2 * zr * zi + f->const_i;
+		zr = (zr * zr) - (zi * zi) + f->const_r;
 		zi = tmp;
 		n++;
 	}
-	color(args, n);
+	ft_color(f, n);
 }

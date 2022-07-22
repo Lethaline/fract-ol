@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_hook.c                                         :+:      :+:    :+:   */
+/*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 11:59:05 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/12 21:40:41 by lolemmen         ###   ########.fr       */
+/*   Created: 2022/06/19 12:01:14 by lolemmen          #+#    #+#             */
+/*   Updated: 2022/07/21 22:43:27 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fractol.h"
 
-static void	zoom(t_win *f, double zoom)
+void	ft_zoom(t_win *f, double zoom)
 {
 	double	center_r;
 	double	center_i;
@@ -23,19 +23,26 @@ static void	zoom(t_win *f, double zoom)
 	f->min_r = f->max_r + zoom * center_r;
 	f->min_i = f->min_i + (center_i - zoom * center_i) / 2;
 	f->max_i = f->min_i + zoom * center_i;
+	ft_draw(f);
 }
 
-int	key_hook(int keycode, t_win *args)
+int	mouse_hook(int keycode, int x, int y, t_win *f)
 {
-	if (keycode == 53)
-		exit(1);
-	else if (keycode == LEFT || keycode == RIGHT || keycode == BOTTOM || keycode == TOP)
-		move_arrow(args, 0.2, keycode);
-	else if (keycode == 43)
-		zoom(args, 0.5);
-	else if (keycode == 47)
-		zoom(args, 2.0);
-	else if (keycode == SPACE)
-		reset(args);
+	if (keycode == 5)
+	{
+		ft_zoom(f, 0.5);
+		x -= WIDTH / 2;
+		y -= HEIGHT / 2;
+		if (x < 0)
+			ft_move_arrow(f, (double)x * -1 / WIDTH, 123);
+		else if (x > 0)
+			ft_move_arrow(f, (double)x / WIDTH, 124);
+		if (y < 0)
+			ft_move_arrow(f, (double)y * -1 / HEIGHT, 126);
+		else if (y > 0)
+			ft_move_arrow(f, (double)y / HEIGHT, 125);
+	}
+	else if (keycode == 4)
+		ft_zoom(f, 2.0);
 	return (0);
 }
