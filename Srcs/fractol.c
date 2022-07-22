@@ -6,7 +6,7 @@
 /*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:52:37 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/21 22:05:38 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/22 22:55:45 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int	main(int ac, char **av)
 	mlx_mouse_hook(f.win, mouse_hook, &f);
 	ft_draw(&f);
 	mlx_loop(f.mlx);
+	free(&f);
 }
