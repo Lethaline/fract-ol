@@ -6,11 +6,11 @@
 #    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 17:41:50 by lolemmen          #+#    #+#              #
-#    Updated: 2022/07/22 17:51:10 by lolemmen         ###   ########.fr        #
+#    Updated: 2022/07/22 18:26:20 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: clean re fclean all bonus
+.PHONY: clean re fclean all
 .SILENT:
 
 NAME = fractol
@@ -75,12 +75,10 @@ INCS = $(addprefix -I , $(INCS_DIR))
 
 all : $(NAME)
 
-$(NAME) : build $(OBJS)
+$(NAME) : $(OBJS)
+	echo "$(LOG_CLEAR)$(NAME)... $(LOG_CYAN)assembling... $(LOG_NOCOLOR)$(LOG_UP)"
 	$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o$(NAME)
-
-build :
-	mkdir -p $(OBJSDIR)
-	mkdir -p $(OBJS_DIR)
+	echo "$(LOG_CLEAR)$(NAME)... $(LOG_GREEN)compiled $(LOG_GREEN)✓$(LOG_NOCOLOR)"
 
 clean :
 	$(RM) $(OBJS_DIR)
@@ -92,4 +90,6 @@ fclean : clean
 	$(RM) $(NAME)
 
 $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
+	mkdir -p $(OBJSDIR) $(OBJS_DIR)
+	echo "$(LOG_CLEAR)$(NAME)... $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
 	$(CC) -c -o $@ $< -Imlx $(INCS) $(FLAGS)
