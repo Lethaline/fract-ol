@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 22:31:16 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/21 22:58:16 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/25 11:43:42 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_display_controls(void)
 {
 	ft_putendl("Controls : ");
 	ft_putendl("");
-	ft_putendl("Use mouse to zoom @ mouse.");
+	ft_putendl("Use mouse to zoom @ mouse. Or - and + to zoom.");
 	ft_putendl("Arrows will move the screen.");
 	ft_putendl("Space will reset your screen.");
 	ft_putendl("1, 2, 3 correspond to the type of fractal.");

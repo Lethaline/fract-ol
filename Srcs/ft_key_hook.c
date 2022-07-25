@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 11:59:05 by lolemmen          #+#    #+#             */
-/*   Updated: 2022/07/22 18:00:41 by lolemmen         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:08:12 by lolemmen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 static void	ft_reset(t_win *f)
 {
-	f->min_r = -2.0;
-	f->max_r = 1.0;
-	f->min_i = -1.5;
-	f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
+	ft_init_fractol_limits(f);
+	f->color = 0xABCDEF;
 	mlx_clear_window(f->mlx, f->win);
 	ft_draw(f);
 }
@@ -84,9 +82,9 @@ int	key_hook(int key, t_win *f)
 		ft_move_arrow(f, 0.2, key);
 	else if (key == BOTTOM || key == TOP || key == Z || key == S)
 		ft_move_arrow(f, 0.2, key);
-	else if (key == 43)
+	else if (key == 24)
 		ft_zoom(f, 0.5);
-	else if (key == 47)
+	else if (key == 27)
 		ft_zoom(f, 2.0);
 	else if (key == SPACE)
 		ft_reset(f);

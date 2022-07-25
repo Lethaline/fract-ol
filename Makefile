@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolemmen <lolemmen@student.s19.be>         +#+  +:+       +#+         #
+#    By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 17:41:50 by lolemmen          #+#    #+#              #
-#    Updated: 2022/07/22 18:26:20 by lolemmen         ###   ########.fr        #
+#    Updated: 2022/07/25 11:40:13 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ FLAGS = -Wall -Wextra #-Werror
 SRCSDIR = Srcs
 INCSDIR = Includes
 OBJSDIR = Objs
+MLXDIR = minilibx
 
 # Sources
 
@@ -73,18 +74,28 @@ OBJS_DIR = $(sort $(dir $(OBJS)))
 INCS_DIR = $(addsuffix /, $(INCSDIR))
 INCS = $(addprefix -I , $(INCS_DIR))
 
-all : $(NAME)
+MLX_INC	= -I $(MLXDIR)
+MLX_LIB	= $(addprefix $(MLXDIR)/,libmlx.a)
+MLX_LINK = -L $(MLXDIR) -l mlx -framework OpenGL -framework AppKit
 
-$(NAME) : $(OBJS)
+all : $(NAME) $(MLX_LIB)
+
+$(NAME) : mlx $(OBJS)
 	echo "$(LOG_CLEAR)$(NAME)... $(LOG_CYAN)assembling... $(LOG_NOCOLOR)$(LOG_UP)"
-	$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o$(NAME)
+	$(CC) $(OBJS) $(MLX_LINK) -lm -o$(NAME)
 	echo "$(LOG_CLEAR)$(NAME)... $(LOG_GREEN)compiled $(LOG_GREEN)✓$(LOG_NOCOLOR)"
+
+mlx :
+	@make -C $(MLXDIR)
+	
 
 clean :
 	$(RM) $(OBJS_DIR)
 	$(RM) $(OBJSDIR)
+	make -C $(MLXDIR) clean 
 
 re : fclean all
+	
 
 fclean : clean
 	$(RM) $(NAME)
@@ -92,4 +103,4 @@ fclean : clean
 $(OBJSDIR)/%.o: $(SRCSDIR)/%.c
 	mkdir -p $(OBJSDIR) $(OBJS_DIR)
 	echo "$(LOG_CLEAR)$(NAME)... $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
-	$(CC) -c -o $@ $< -Imlx $(INCS) $(FLAGS)
+	$(CC) -c -o $@ $< $(MLX_INC) $(INCS) $(FLAGS)
