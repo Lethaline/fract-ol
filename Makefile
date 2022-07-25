@@ -6,7 +6,7 @@
 #    By: lolemmen <lolemmen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 17:41:50 by lolemmen          #+#    #+#              #
-#    Updated: 2022/07/25 11:40:13 by lolemmen         ###   ########.fr        #
+#    Updated: 2022/07/25 15:57:59 by lolemmen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = fractol
 
 RM = rm -rf
 CC = gcc
-FLAGS = -Wall -Wextra #-Werror
+FLAGS = -Wall -Wextra -Werror
 
 # Directories
 
